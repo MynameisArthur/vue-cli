@@ -4,9 +4,17 @@
             <div
                 class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
             >
-                <h1>Filters & Mixins</h1>
-                <p>{{ text | toUppercase }}</p>
-                <p>{{ text | toLowercase | toAlertCase }}</p>
+                <h1>Animations</h1>
+                <hr />
+                <button class="btn btn-primary" @click="show = !show">
+                    Show Alert
+                </button>
+                <br /><br />
+                <transition name="fade">
+                    <div class="alert alert-info" v-if="show">
+                        This is some info
+                    </div>
+                </transition>
             </div>
         </div>
     </div>
@@ -18,15 +26,15 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 export default {
     data() {
         return {
-            text: 'Hello there!',
+            show: false,
         };
-    },
-    filters: {
-        toUppercase(value) {
-            return value.toUpperCase();
-        },
     },
 };
 </script>
 
-<style></style>
+<style>
+.fade-enter {
+}
+.fade-enter-active {
+}
+</style>
